@@ -6,20 +6,35 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-Graphs for P620 Total range is 1 to 4 on 30 questions so so 30 to 120
+Self Awareness
 ```{r}
 library(ggplot2)
-score = c(59, 60, 58, 75)
+Self_Awareness_Score = c(20, 22, 21, 32)
+Social_Awareness_Score = c(19, 21, 20, 30)
 time = c("1", "2", "1", "2")
 group = c("Control", "Control", "Treatment", "Treatment")
 datP620 = data.frame(cbind(pre, post, time, group))
 theme_set(theme_grey(base_size = 13))
-p= ggplot(data=datP620, aes(x=time, y=score, group=group, colour=group)) +
+p= ggplot(data=datP620, aes(x=time, y=Self_Awareness_Score, group=group, colour=group)) +
     geom_line() +
     geom_point(); p
-p = p +expand_limits(y = c(30, 120)); p
-p = p+ggtitle("Change in Treatment and Control from Pre to Post");p
+p = p +expand_limits(y = c(7, 45)); p
+p = p+ggtitle("Self Awareness Change from Pre to Post");p
 
+```
+Social Awareness
+```{r}
+library(ggplot2)
+Social_Awareness_Score = c(15, 18, 16, 30)
+time = c("1", "2", "1", "2")
+group = c("Control", "Control", "Treatment", "Treatment")
+datP620 = data.frame(cbind(pre, post, time, group))
+theme_set(theme_grey(base_size = 13))
+p= ggplot(data=datP620, aes(x=time, y=Social_Awareness_Score, group=group, colour=group)) +
+    geom_line() +
+    geom_point(); p
+p = p +expand_limits(y = c(7, 45)); p
+p = p+ggtitle("Social Awareness Change from Pre to Post");p
 ```
 
 
